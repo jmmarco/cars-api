@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       get 'cars', to: 'cars#index'
+      get 'cars/random/:count', to: 'cars#random'
       post 'cars', to: 'cars#create'
       get 'cars/:id', to: 'cars#show'
       put 'cars/:id', to: 'cars#update'

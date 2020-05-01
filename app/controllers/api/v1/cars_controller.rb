@@ -12,9 +12,14 @@ class Api::V1::CarsController < ApplicationController
   end
 
   def update
-    car = Car.find(params[:id])
-    car.update!(car_params)
-    render json: car
+    @car = Car.find(params[:id])
+    @car.update!(car_params)
+    render json: @car
+  end
+
+  def random
+    @result = Car.order(Arel.sql('RANDOM()')).limit(params[:count])
+    render json: @result
   end
 
   def show
