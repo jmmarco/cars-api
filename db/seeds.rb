@@ -5,7 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-json = File.read("./tmp/cars.json")
+json = File.read("./vendor/cars.json")
 arr = JSON.parse(json)
 arr.each do |c|
   Car.create(make: c["make"], model: c["model"], year: Integer(c["year"]) )
